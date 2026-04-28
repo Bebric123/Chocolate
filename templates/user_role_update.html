@@ -1,0 +1,14 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}<title>Изменение роли</title>{% endblock %}
+
+{% block content %}
+    <h1>Изменение роли: {{ user_obj.full_name }}</h1>
+    <p>Логин: <b>{{ user_obj.login }}</b> | Текущая роль: <b>{{ user_obj.role.name_role|default:"не назначена" }}</b></p>
+    <form class="form" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Сохранить</button>
+    </form>
+    <a class="button" href="{% url 'user_list' %}">Назад</a>
+{% endblock %}

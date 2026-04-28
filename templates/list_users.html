@@ -1,0 +1,34 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}<title>Список пользователей</title>{% endblock %}
+
+{% block content %}
+    <h1>Список пользователей</h1>
+    <table class="users-table">
+        <thead>
+            <tr>
+                <th>Полное имя</th>
+                <th>Логин</th>
+                <th>Статус</th>
+                <th>Роль</th>
+                <th>Действие</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for u in users %}
+            <tr>
+                <td>{{ u.full_name }}</td>
+                <td>{{ u.login }}</td>
+                <td>{{ u.status }}</td>
+                <td>{{ u.role.name_role|default:"—" }}</td>
+                <td>
+                    <a class="button" href="{% url 'user_role_update' u.id %}">Изменить роль</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="5">Пользователи не найдены.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a class="button" href="{% url 'material_list' %}">Назад</a>
+{% endblock %}

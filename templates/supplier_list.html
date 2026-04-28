@@ -1,0 +1,23 @@
+{% extends 'flatpages/default.html' %}
+{% block title %}
+    <title>Supplier</title>
+{% endblock %}
+{% block content %}
+    <h1>Supplier</h1>
+   {% for material in materials %}
+    <div class="card">
+        <div class="line-1">
+            <p>{{ material.supplier.name_supplier }}</p>
+        </div>
+        <div class="line-2">
+            <div class="line-2-1">
+                <p>Рейтинг: {{ material.supplier.rating}}</p>   
+                <p>Закупочная цена: {{ material.zak_price}}</p>
+                <p>Среднее время доставки(дни): {{ material.avg_delivery }}</p>
+            </div>
+            <a class="btn" href="{% url 'suppliers_update' material.id %}">Update</a>
+        </div>
+    </div>
+    {% endfor %}
+    <a class="btn" href="{% url 'materials_list' %}">Back</a>
+{% endblock %}

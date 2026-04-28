@@ -1,0 +1,27 @@
+{% extends 'flatpages/default.html' %}
+{% block title %}
+    <title>Materials</title>
+{% endblock %}
+{% block content %}
+    <h1>Materials</h1>
+   {% for material in materials %}
+    <div class="card">
+        <div class="line-1">
+            <p><a href="{% url 'update' material.id %}">{{ material.type.type_material }} | {{ material.name_material }}</a></p>
+        </div>
+        <div class="line-2">
+            <div class="line-2-1">
+                <p>Минимальное количество: {{ material.min_qty }} {{ material.unit }}</p>
+                <p>Количество на складе: {{ material.qty_werehouse }} {{ material.unit }}</p>
+                <p>Цена: {{ material.price_unit }} руб. / Единица измерения: {{ material.unit }}</p>    
+            </div>
+            <div>
+                <p class="line-2-2">Стоимость партии: {{ material.stock_value }} руб.</p>
+                <p class="line-2-2">Необходимое кол-во для продукции: {{ material.summ }} {{ material.unit }}</p>
+            </div>
+        </div>
+        <a class="btn" href="{% url 'suppliers' material.id %}">Suppliers</a>
+        <a class="btn" href="{% url 'products' material.id %}">Products</a>
+    </div>
+    {% endfor %}
+{% endblock %}

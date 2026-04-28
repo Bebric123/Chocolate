@@ -1,0 +1,117 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Georgia;
+}
+
+header ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #6A3B1A;
+    border-bottom: 1px solid #ccc;
+}
+
+header ul a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+header ul a:hover{
+    text-decoration: underline;
+}
+
+.card{
+    border: 2px solid #6A3B1A;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.line-1 a{
+    color: black;
+    text-decoration: none;
+}
+
+.card a:hover{
+    text-decoration: underline;
+}
+
+.card:hover{
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    background-color: #F2E4D8;
+}
+
+.line-1{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.line-2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.line-2-2{
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #6A3B1A;
+}
+
+.alert-success{
+    width: 30%;
+    background-color: rgb(127, 255, 148);
+    box-shadow: 0 0 30px 0 green;
+    display: flex;
+    justify-content: center;
+}
+
+.alert-dander{
+    width: 30%;
+    background-color: rgb(255, 127, 127);
+    box-shadow: 0 0 30px 0 rgb(128, 0, 0);
+    display: flex;
+    justify-content: center;
+}
+
+.form{
+    border: 2px solid #6A3B1A;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.form input, select {
+    border: 2px solid #6A3B1A;
+    font-family: Georgia;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #6A3B1A;
+}
+
+.form button{
+    width: 100%;
+    background-color: #6A3B1A;
+    color: white;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.btn{
+    background-color: #6A3B1A;
+    color: white;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+    text-decoration: none;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" href="{% static 'img/logo.jpg' %}">
+    {% block title %}
+    {% endblock %}
+</head>
+<body>
+    <header>
+        <ul>
+            <li><img src="{% static 'img/logo.jpg' %}" alt="logo" class="logo" width="100" height="100"></li>
+            <li><a href="{% url 'materials_list' %}">Home</a></li>
+            <li><a href="{% url 'create' %}">Add</a></li>
+            <div class="user-info">
+                {% if request.session.user_id %}
+                    <li><a href="#">{{ request.session.user_name }} <em>{{ request.session.role_name }}</em></a></li>
+                    <li><a href="{% url 'logout'%}">LogOut</a></li>
+                {% else %}
+                    <a href="{% url 'login'%}">Login</a>
+                {% endif %}
+            </div>
+        </ul>
+    </header>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert {% if message.tags == 'success' %}alert-success
+            {% elif message.tags == 'error' %}alert-dander
+            {% endif %}
+            ">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

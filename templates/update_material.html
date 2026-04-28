@@ -1,0 +1,14 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}
+    <title>Update material</title>
+{% endblock%}
+
+{% block content %}
+    <form class='form' method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btm" type="submit">Update</button>
+    </form>
+    <a class="btn" href="{% url 'materials_list' %}">Back</a>
+{% endblock %}

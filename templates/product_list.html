@@ -1,0 +1,20 @@
+{% extends 'flatpages/default.html' %}
+{% block title %}
+    <title>Product</title>
+{% endblock %}
+{% block content %}
+    <h1>Product</h1>
+   {% for material in materials %}
+    <div class="card">
+        <div class="line-1">
+            <p>{{ material.product.name_product }}</p>
+        </div>
+        <div class="line-2">
+            <div class="line-2-1">
+                <p>Количество материала на единицу продукции: {{ material.qty_material_product }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <a class="btn" href="{% url 'materials_list' %}">Back</a>
+{% endblock %}
